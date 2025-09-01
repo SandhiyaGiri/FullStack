@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+    <script src="https://unpkg.com/lodash@4.17.21/lodash.js"></script>
+    <script>
+        const n1 = "Sandhiya";
+        const n2 = "Sandhiya";
+
+        console.log(n1 === n2); // This is True
+
+        let name1 = {
+            first: 'Sandhiya',
+            last: 'Giri',
+            address: {
+                office: "Bengaluru",
+                native: "CBE"
+            }
+        };
+
+        let name2 = {
+            first: 'Sandhiya',
+            last: 'Giri'
+        };
+
+        console.log(name1 === name2); // This is False because the object 'name1' is not referenced to the object 'name2'
+        name2.first = 'Akshaya';
+
+        console.log("This is name2 :", name2, "This is name 1 :", name1, "- which will be changed because of name2 is changed (name2.first = 'Akshaya';)");
+
+        name2 = name1; // THis is not like creating a copy of the object - it references/points to the object
+        console.log(name1 === name2); //This is True since in this case the object 'name1' IS referenced to the object 'name2'
+
+        name2.first = 'Akshaya';
+        console.log("This is name2 :", name2, "This is name 1 :", name1, "- which is also changed because of name2 is changed");
+
+        // We can use spread operator for copying
+
+        // name3 = { ...name1 };
+
+        // console.log("This is name1 : ", name1, "And this is name3: ", name3);
+
+        // console.log("Is name1 === name3 ? ", name1 === name3);
+        // name1.address.office = "Chennai";
+
+        // name1.first = "Sandhiya"; // name3 will not change
+        // name1.address.office = "Chennai" // the name3 will be changed - This is shallow copying - we need a library for this which is called 'Lodash'
+        name3 = _.cloneDeep(name1);
+
+        console.log("This is name1 : ", name1, "And this is name3: ", name3);
+
+        console.log("Is name1 === name3 ? ", name1 === name3);
+        name1.address.office = "Chennai";
+
+        name1.first = "Sandhiya"; // name3 will not change
+        name1.address.office = "Chennai" // This also will not change the name 3
+
+        // This concept of copying and referencing is also applies to function;
+
+    </script>
+</body>
+
+</html>
