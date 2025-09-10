@@ -131,18 +131,67 @@
             return range;
         }
 
-
-
         /*
           Looping Methods
         */
 
-        function logTopping() {
-
+        function logTopping(topping, index, array) {
+            console.log(topping, index, array);
+            // debugger;
         }
+
+        toppings.forEach(logTopping);
 
         const burgRating = feedback.find(rating => rating.comment.includes('burg'));
         console.log(burgRating);
+
+
+        console.clear();
+
+        /* Mapping in Looping */
+
+        function addWaves(face) {
+            return (`👋 ${face} 👋 `);
+        }
+
+        const faces_waved = faces.map(addWaves);
+        console.log(faces_waved);
+
+        // console.clear();
+
+        const clean_people = people.map(function (person) {
+            const age_in_ms = new Date(person.birthday).getTime();
+            const now = new Date();
+
+            const age = Math.floor((now - age_in_ms) / (1000 * 60 * 60 * 24 * 365));
+
+
+            return {
+                age,
+                name: `${person.names.first} ${person.names.last}`
+            };
+        })
+        console.log(clean_people);
+
+        const over40 = clean_people.filter((person) => (person.age > 40));
+        console.table(over40);
+
+
+        const student_565ax = students.find(stud => stud.id === '565a');
+        console.log(student_565ax);
+
+        function findByProp(prop, prop_val) {
+            return function (student) {
+                return student[prop] === prop_val;
+            }
+        }
+
+        const stud1 = students.find(findByProp('id', '62'));
+        console.log(stud1);
+
+
+
+
 
     </script>
 </body>
