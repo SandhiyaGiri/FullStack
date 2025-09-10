@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loops</title>
+</head>
+
+<body>
+    <script>
+
+        // for loop
+
+        for (var i = 0; i <= 20; i += 2) {
+            console.log(i);
+        }
+
+        for (i; i >= 0; i -= 2) {
+            console.log(i);
+        }
+
+
+
+        // for of
+
+        const name = 'Sandhiya';
+
+        for (const char of name) {
+            console.log(char);
+        }
+
+        const numbers = [1, 2, 3, 24, 5, 4, 56, 43, 45, 98];
+
+        for (const n of numbers) {
+            console.log(n);
+        }
+
+        // for if
+        console.log("#".repeat(30));
+        for (const char in name) {
+            console.log(char);
+        }
+
+        for (const n in numbers) {
+            console.log(n);
+        }
+
+        human_props = { 'head': 1, 'hands': 2, 'legs': 2, 'fingers': 10, 'bones': 206 };
+
+        for (const prop in human_props) {
+            console.log(prop);
+        }
+
+        function Human(name) {
+            this.name = name;
+        }
+        Human.prototype = human_props;
+
+        const sandhiya = new Human('sandhiya');
+        console.log(Object.entries(sandhiya));
+
+        for (const prop in sandhiya) {
+            console.log(prop);
+        }
+
+        // while loop
+
+        let a = 10
+
+        while (a > 0) {
+            console.log('#'.repeat(a));
+            a--;
+        }
+
+        // do while looop
+
+        do {
+            console.log(a);
+        } while (a == 1);
+
+    </script>
+</body>
+
+</html>
