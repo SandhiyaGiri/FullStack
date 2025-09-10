@@ -189,9 +189,28 @@
         const stud1 = students.find(findByProp('id', '62'));
         console.log(stud1);
 
+        console.clear();
 
+        function tallyNumbers(tally, currentTotal) {
+            console.log(`The current total is ${currentTotal} and the tally is ${tally}`);
+            console.log("##".repeat(10));
+            return tally + currentTotal;
+        }
 
+        const allorders = orderTotals.reduce(tallyNumbers, 0);
+        console.log(allorders);
 
+        function inventoryReducer(totals, item) {
+            console.log("Processing the item", item);
+            totals[item.type] = totals[item.type] + 1 || 1;
+            return totals;
+        }
+
+        const inventoryCounts = inventory.reduce(inventoryReducer, {});
+        console.log(inventoryCounts);
+
+        const inventoryPrice = inventory.reduce((acc, item) => acc + item.price, 0);
+        console.log(inventoryPrice);
 
     </script>
 </body>
