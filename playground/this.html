@@ -9,11 +9,44 @@
 </head>
 
 <body>
+    <button class="one">Button1</button>
+    <button class="two">Button2</button>
 
     <script>
         const myDate = new Date('August 13, 2025');
         console.dir(myDate);
         console.log(myDate.getFullYear);
+
+        const butt1 = document.querySelector('.one');
+        const butt2 = document.querySelector('.two');
+
+        function button_click() {
+            console.log("Inside this", this);
+            setTimeout(() => {
+                console.log("Outside this ", this);
+                this.textContent = 'You clicked me';
+
+            }, 1000);
+        }
+        // const button_click = () => {
+        //     console.log(this); // This heyword does not change in the arrow fucntion - It is still a higher level fucntion 
+        // }
+
+        butt1.addEventListener("click", button_click);
+        butt2.addEventListener("click", button_click);
+
+
+        function makingPizza(toppings = [], customer) {
+            console.log("Making pizza...");
+            this.toppings = toppings;
+            this.customer = customer;
+
+            this.id = Math.floor(Math.random() * 123221).toString(16);
+            // return '#' + this.id;
+        }
+
+        const sandy = new makingPizza(['Mushrooms', 'Broccoli', 'Sweet corn'], 'Sandhu');
+        const achu = new makingPizza(['Peparoni', 'Cheese'], 'Achu');
     </script>
 
 </body>
