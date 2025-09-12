@@ -4,11 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sarcastic Text Generator</title>
+    <link rel="stylesheet" href="../../base.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: grid;
+            align-items: center;
+
+        }
+
+        .typer {
+            margin: 0 auto;
+            background: white;
+            width: 500px;
+            padding: 2rem;
+            padding: 2rem;
+            border-radius: 3px;
+            display: grid;
+        }
+
+        textarea {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="typer">
+        <label for="Sarcastic">
+            <input type="radio" value="Sarcastic" id="Sarcastic" name="filter" checked>
+            Sarcastic</label>
+        <label for="Sarcastic">
+            <input type="radio" value="funky" id="funky" name="filter" checked>
+            Funky</label>
+        <label for="Unable">
+            <input type="radio" value="Unable" id="Unable" name="filter" checked>
+            Unable to structure a sentence</label>
 
+        <textarea name="text">so I was thinking about taking up other roles in different firms</textarea>
+        <p class="result"></p>
+    </div>
+    <script src="./text.js"></script>
 </body>
 
 </html>
