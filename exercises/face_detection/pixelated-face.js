@@ -7,7 +7,34 @@ const canvas = document.querySelector('.video');
 const ctx = canvas.getContext('2d');
 const faceCanvas = document.querySelector('.face');
 const faceCtx = faceCanvas.getContext('2d');
-const faceDetector = new window.FaceDetector();
+// Check if FaceDetector is available
+if (!window.FaceDetector) {
+  alert(`❌ FaceDetector API is not supported in this browser!
+
+To enable it in Chrome:
+1. Go to chrome://flags
+2. Search for "Experimental Web Platform features"  
+3. Set it to "Enabled"
+4. Restart Chrome
+
+Then try again!`);
+  throw new Error('FaceDetector API not supported');
+}
+
+let faceDetector;
+try {
+  faceDetector = new window.FaceDetector();
+} catch (error) {
+  alert(`❌ FaceDetector API failed to initialize!
+
+Make sure you've enabled experimental features in Chrome:
+1. Go to chrome://flags
+2. Enable "Experimental Web Platform features"
+3. Restart Chrome
+
+Error: ${error.message}`);
+  throw error;
+}
 const optionsInputs = document.querySelectorAll(
   '.controls input[type="range"]'
 );
