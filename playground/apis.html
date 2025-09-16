@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APIs</title>
+    <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+    <script>
+        function handleError(err) {
+            console.log("Oh no!!");
+            console.log(err);
+        }
+        const endpoint = 'https://api.github.com/users/SandhiyaGiri';
+        const promise = fetch(endpoint);
+        console.log(promise);
+        promise.then(response => { return response.json(); }).then(data => {
+            console.log(data);
+            console.log(data.login);
+            console.log(data.location);
+        }).catch(handleError);
+
+    </script>
+
+</body>
+
+</html>
