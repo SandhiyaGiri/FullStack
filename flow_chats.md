@@ -1,6 +1,7 @@
 # Handy Application Flow Diagram
 
 ```mermaid
+
 flowchart TD
     A[User Presses Shortcut] --> B[Global Shortcut Handler]
     B --> C[Audio Recording Manager]
